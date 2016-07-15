@@ -56,7 +56,8 @@ app.get('/api', function api_index(req, res) {
       {method: 'GET', path: '/api/albums', description: 'Data about my favorite albums'},
       {method: 'GET', path: '/api/albums/:id', description: 'Find one album'},
       {method: 'POST', path: '/api/albums', description: 'Create a new album'},
-      {method: 'PUT', path: '/api/albums', description: ''}
+      {method: 'PUT', path: '/api/albums/:id', description: 'Edit existing albums'},
+      {method: 'DELETE', path: '/api/albums/:id', description: 'Destroy one album'}
     ]
   });
 });
