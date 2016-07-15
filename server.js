@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // allow cross origin requests (optional)
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 
@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
-// var db = require('./models');
+var db = require('./models');
 
 /**********
  * ROUTES *
@@ -42,21 +42,27 @@ app.get('/', function homepage(req, res) {
  * JSON API Endpoints
  */
 
+// get all root API info
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
     woops_i_has_forgot_to_document_all_my_endpoints: true, // CHANGE ME ;)
     message: "Welcome to my personal api! Here's what you need to know!",
-    documentation_url: "https://github.com/mehgellan/express-personal-api/README.md",
-    base_url: "http://stark-fjord-10734.herokuapp.com",
+    documentation_url: 'https://github.com/mehgellan/express-personal-api/README.md',
+    base_url: 'http://stark-fjord-10734.herokuapp.com',
     endpoints: [
-      {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "My generally important data"},
-      {method: "GET", path: '/api/albums', description: "Data about my favorite albums"},
-      {method: "POST", path: "/api/albums", description: "E.g. Create a new campsite"},
+      {method: 'GET', path: '/api', description: 'Describes all available endpoints'},
+      {method: 'GET', path: '/api/profile', description: 'My generally important data'},
+      {method: 'GET', path: '/api/albums', description: 'Data about my favorite albums'},
+      {method: 'GET', path: '/api/albums/:id', description: 'Find one album'},
+      {method: 'POST', path: '/api/albums', description: 'Create a new album'},
+      {method: 'PUT', path: '/api/albums', description: ''}
     ]
   });
 });
+
+
+
 
 /**********
  * SERVER *
