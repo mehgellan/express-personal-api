@@ -47,13 +47,13 @@ app.get('/api', function api_index(req, res) {
   res.json({
     woops_i_has_forgot_to_document_all_my_endpoints: true, // CHANGE ME ;)
     message: "Welcome to my personal api! Here's what you need to know!",
-    documentation_url: "https://github.com/mehgellan/express-personal-api/README.md", // CHANGE ME
-    base_url: "http://stark-fjord-10734.herokuapp.com", // CHANGE ME
+    documentation_url: "https://github.com/mehgellan/express-personal-api/README.md",
+    base_url: "http://stark-fjord-10734.herokuapp.com",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"}, // CHANGE ME
-      {method: "GET", path: '/api/books', description: "All my favorite books"}
+      {method: "GET", path: "/api/profile", description: "My generally important data"},
+      {method: "GET", path: '/api/albums', description: "Data about my favorite albums"},
+      {method: "POST", path: "/api/albums", description: "E.g. Create a new campsite"},
     ]
   });
 });
