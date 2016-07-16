@@ -74,6 +74,8 @@ app.get('/api/profile', function profile_index(req, res) {
 
 app.get('/api/albums', function albums_index(req, res) {
   db.Album.find(function(err, allAlbums) {
+    // if (err) { return console.log('index error', err); }
+    console.log('found all albums');
     res.json({ albums: allAlbums });
   });
 });

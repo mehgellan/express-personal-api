@@ -18,12 +18,14 @@ var albums_list = [
   }
 ];
 
-db.Album.create(albums_list, function(err, album) {
+db.Album.create(albums_list, function(err, savedAlbum) {
   if (err) {
     return console.log('Error: ', err);
   }
-  console.log('Created new album', album);
+  console.log('Created new album' + savedAlbum);
+  process.exit();
 });
+
 // db.Campsite.create(new_campsite, function(err, campsite){
 //   if (err){
 //     return console.log("Error:", err);
