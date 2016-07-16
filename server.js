@@ -62,6 +62,17 @@ app.get('/api', function api_index(req, res) {
   });
 });
 
+app.get('/api/profile', function profile_index(req, res) {
+  //TODO: Document all my profile attributes below
+  res.json({
+    name: 'Meg Bauman',
+    github_link: 'https://github.com/mehgellan',
+    github_profile_image: 'public/images/meg.jpeg',
+    location: [ {current: 'San Francisco, CA'}, {start: 'Chicago, IL'} ],
+    social_media: [],
+  });
+});
+
 
 
 
