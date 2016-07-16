@@ -44,7 +44,6 @@ app.get('/', function homepage(req, res) {
 
 // get all root API info
 app.get('/api', function api_index(req, res) {
-  // TODO: Document all your api endpoints below
   res.json({
     woops_i_has_forgot_to_document_all_my_endpoints: true, // CHANGE ME ;)
     message: "Welcome to my personal api! Here's what you need to know!",
@@ -71,6 +70,10 @@ app.get('/api/profile', function profile_index(req, res) {
     location: [ {current: 'San Francisco, CA'}, {start: 'Chicago, IL'} ],
     social_media: [],
   });
+});
+
+app.get('/api/albums', function albums_index(req, res) {
+  db.Album.find();
 });
 
 

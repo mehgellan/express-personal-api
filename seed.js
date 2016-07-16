@@ -3,8 +3,27 @@
 
 var db = require('./models');
 
-// var new_campsite = {description: "Sharp rocks. Middle of nowhere."}
+var albums_list = [
+  {
+    name: 'Greatest Hits',
+    album_art: 'https://images-na.ssl-images-amazon.com/images/I/518mmyBw1VL.jpg',
+    genre: 'Soul',
+    artist: 'Al Green'
+  },
+  {
+    name: 'Urban Flora',
+    album_art: 'https://i1.sndcdn.com/artworks-000117201209-y1l5g2-t500x500.jpg',
+    genre: 'Downtempo',
+    artist: 'Alina Baraz & Galimatias'
+  }
+];
 
+db.Album.create(albums_list, function(err, album) {
+  if (err) {
+    return console.log('Error: ', err);
+  }
+  console.log('Created new album', album);
+});
 // db.Campsite.create(new_campsite, function(err, campsite){
 //   if (err){
 //     return console.log("Error:", err);
