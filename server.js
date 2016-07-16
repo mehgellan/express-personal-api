@@ -73,12 +73,21 @@ app.get('/api/profile', function profile_index(req, res) {
 });
 
 app.get('/api/albums', function albums_index(req, res) {
-  db.Album.find(function(err, allAlbums) {
+  db.Album.find({}, function(err, allAlbums) {
     // if (err) { return console.log('index error', err); }
     console.log('found all albums');
     res.json({ albums: allAlbums });
   });
 });
+
+app.get('/api/albums/:id', function albums_show(req, res) {
+  var id = req.params.id;
+    db.Album.findById({_id: id}, function(err, album) {
+      if (err) { return console.log('show error: ' + err); }
+      res.json(album);
+    });
+});
+
 
 
 
