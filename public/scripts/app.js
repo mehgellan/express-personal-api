@@ -20,7 +20,7 @@ $(document).ready(function(){
     $.ajax({
       method: 'POST',
       url: '/api/albums',
-      data: $(this).serialize(),
+      data: $('form').serialize(),
       success: newAlbumSuccess,
       error: newAlbumError
     });
@@ -45,8 +45,8 @@ function onError(e) {
 }
 
 function newAlbumSuccess(json) {
-  $('#newAlbumForm input').val('');
-  allAlbums.push(json);
+  $('form input').val('');
+  (allAlbums.albums).push(json);
   render();
 }
 
