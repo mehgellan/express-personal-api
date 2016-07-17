@@ -41,6 +41,16 @@
             </fieldset>
             <button type="submit">Post</button>
           </form>
+          <div class="target">
+            <script id="albums-template" type="text/x-handlebars-template">
+              {{#each albums}}
+              <p>
+                <b>{{name}}</b>
+                by {{artist}}
+              </p>
+              {{/each}}
+            </script>
+          </div>
           <h4><a href="/api">Read My API Documentation</a></h4>
         </div>
       </div>
