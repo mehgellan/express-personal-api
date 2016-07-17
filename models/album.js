@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var AlbumSchema = new Schema({
   name: String,
   album_art: String,
-  genre: String,
+  genre: Array,
 });
 
 // compile Schema into active model

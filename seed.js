@@ -7,15 +7,39 @@ var albums_list = [
   {
     name: 'Greatest Hits',
     album_art: 'https://images-na.ssl-images-amazon.com/images/I/518mmyBw1VL.jpg',
-    genre: 'Soul',
+    genre: ['Soul', 'R&B', 'Funk'],
     artist: 'Al Green'
   },
   {
     name: 'Urban Flora',
     album_art: 'https://i1.sndcdn.com/artworks-000117201209-y1l5g2-t500x500.jpg',
-    genre: 'Downtempo',
+    genre: ['Downtempo', 'Chillstep', 'Electronic'],
     artist: 'Alina Baraz & Galimatias'
-  }
+  },
+  {
+    name: 'Voodoo',
+    album_art: 'public/images/album_art/voodoo.jpg',
+    genre: ['R&B', 'Neo Soul', 'Hip Hop'],
+    artist: "D'Angelo"
+  },
+  {
+    name: 'Dusk to Dawn',
+    album_art: 'public/images/album_art/dusk-to-dawn.jpg',
+    genre: ['Chill-out', 'Trip Hop', 'Electronic'],
+    artist: ''
+  },
+  {
+    name: '',
+    album_art: '',
+    genre: '',
+    artist: ''
+  },
+  {
+    name: '',
+    album_art: '',
+    genre: '',
+    artist: ''
+  },
 ];
 
 db.Album.remove({}, function(err, albums) {
