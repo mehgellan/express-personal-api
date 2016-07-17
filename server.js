@@ -45,7 +45,7 @@ app.get('/', function homepage(req, res) {
 // get all root API info
 app.get('/api', function api_index(req, res) {
   res.json({
-    woops_i_has_forgot_to_document_all_my_endpoints: true, // CHANGE ME ;)
+    woops_i_has_forgot_to_document_all_my_endpoints: false, // CHANGE ME ;)
     message: "Welcome to my personal api! Here's what you need to know!",
     documentation_url: 'https://github.com/mehgellan/express-personal-api/README.md',
     base_url: 'http://stark-fjord-10734.herokuapp.com',
@@ -68,14 +68,14 @@ app.get('/api/profile', function profile_index(req, res) {
     github_link: 'https://github.com/mehgellan',
     github_profile_image: 'public/images/meg.jpeg',
     location: [ {current: 'San Francisco, CA'}, {start: 'Chicago, IL'} ],
-    social_media: [],
+    social_media: [ {name: 'SoundCloud', href: ''}, {name: 'LinkedIn', href: 'https://www.linkedin.com/in/megbauman'}, {name: '#', href:'#'} ],
   });
 });
 
 app.get('/api/albums', function albums_index(req, res) {
   db.Album.find({}, function(err, allAlbums) {
     // if (err) { return console.log('index error', err); }
-    console.log('found all albums');
+    console.log('FOUND ALL ALBUMS');
     res.json({ albums: allAlbums });
   });
 });
@@ -83,10 +83,26 @@ app.get('/api/albums', function albums_index(req, res) {
 app.get('/api/albums/:id', function albums_show(req, res) {
   var id = req.params.id;
     db.Album.findById({_id: id}, function(err, album) {
-      if (err) { return console.log('show error: ' + err); }
+      if (err) { res.sendStatus(404); }
+      console.log('FOUND ONE ALBUM: ', album.name);
       res.json(album);
     });
 });
+
+app.post('/api/albums', function(req, res) {
+  var newAlbum = new db.Album({
+    name: req.body.name,
+    album_art: req.body.album_art,
+    genre: req.body.genre
+  });
+  console.log(newAlbum);
+  newAlbum.save(function handleDBAlbumSaved(err, savedAlbum) {
+    if (err) { res.sendStatus(404); }
+    console.log('CREATED ', savedAlbum);
+    res.json(savedAlbum);
+  });
+});
+
 
 
 

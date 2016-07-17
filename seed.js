@@ -18,13 +18,21 @@ var albums_list = [
   }
 ];
 
-db.Album.create(albums_list, function(err, savedAlbum) {
-  if (err) {
-    return console.log('Error: ', err);
-  }
-  console.log('Created new album' + savedAlbum);
-  process.exit();
+db.Album.remove({}, function(err, albums) {
+  console.log('REMOVED ALL ALBUMS');
+  db.Album.create(albums_list, function(err, savedAlbum) {
+    if (err) {
+      return console.log('ERROR: ', err);
+    }
+    console.log('CREATED NEW ALBUM' + savedAlbum);
+    console.log('CREATED', savedAlbum.length, 'ALBUMS');
+    process.exit();
+  });
 });
+
+
+
+
 
 // db.Campsite.create(new_campsite, function(err, campsite){
 //   if (err){
