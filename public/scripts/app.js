@@ -15,16 +15,16 @@ $(document).ready(function(){
     error: onError
   });
 
-  // $('#newAlbumForm').on('submit', function(e) {
-  //   e.preventDefault();
-  //   $.ajax({
-  //     method: 'POST',
-  //     url: '/api/albums',
-  //     data: $(this).serialize(),
-  //     success: newAlbumSuccess,
-  //     error: newAlbumError
-  //   });
-  // });
+  $('#newAlbumForm').on('submit', function(e) {
+    e.preventDefault();
+    $.ajax({
+      method: 'POST',
+      url: '/api/albums',
+      data: $(this).serialize(),
+      success: newAlbumSuccess,
+      error: newAlbumError
+    });
+  });
 
 });
 
