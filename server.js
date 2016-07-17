@@ -93,13 +93,25 @@ app.post('/api/albums', function(req, res) {
   var newAlbum = new db.Album({
     name: req.body.name,
     album_art: req.body.album_art,
-    genre: req.body.genre
+    genre: req.body.genre,
+    artist: req.body.artist
   });
   console.log(newAlbum);
   newAlbum.save(function handleDBAlbumSaved(err, savedAlbum) {
     if (err) { res.sendStatus(404); }
     console.log('CREATED ', savedAlbum);
     res.json(savedAlbum);
+  });
+});
+
+app.put('/api/albums/:id', function(req, res) {
+  var albumId = req.params.id;
+  db.Album.findOne({_id: albumId}, function(err, foundAlbum) {
+    foundAlbum.name = req.body.name;
+    foundAlbum.artist = req.body.artist;
+    foundAlbum.save(function(err, savedAlbum) {
+      res.json(savedAlbum);
+    });
   });
 });
 
