@@ -74,7 +74,7 @@ app.get('/api/profile', function profile_index(req, res) {
 
 app.get('/api/albums', function albums_index(req, res) {
   db.Album.find({}, function(err, allAlbums) {
-    // if (err) { return console.log('index error', err); }
+    if (err) { res.sendStatus(404); }
     console.log('FOUND ALL ALBUMS');
     res.json({ albums: allAlbums });
   });
@@ -108,12 +108,16 @@ app.put('/api/albums/:id', function(req, res) {
   var albumId = req.params.id;
   db.Album.findOne({_id: albumId}, function(err, foundAlbum) {
     foundAlbum.name = req.body.name;
+    foundAlbum.genre = req.body.genre;
     foundAlbum.artist = req.body.artist;
     foundAlbum.save(function(err, savedAlbum) {
+      if (err) { res.sendStatus(404); }
       res.json(savedAlbum);
     });
   });
 });
+
+app.delete('/api/albums/:id', function(req, res) {});
 
 
 
