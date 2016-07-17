@@ -92,7 +92,6 @@ app.get('/api/albums/:id', function album_show(req, res) {
 app.post('/api/albums', function(req, res) {
   var newAlbum = new db.Album({
     name: req.body.name,
-    album_art: req.body.album_art,
     genre: req.body.genre,
     artist: req.body.artist
   });
