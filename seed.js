@@ -18,13 +18,13 @@ var albums_list = [
   },
   {
     name: 'Voodoo',
-    album_art: 'public/images/album_art/voodoo.jpg',
+    album_art: '/public/images/album_art/voodoo.jpg',
     genre: 'RnB',
     artist: "D'Angelo"
   },
   {
     name: 'Dusk to Dawn',
-    album_art: 'public/images/album_art/dusk-to-dawn.jpg',
+    album_art: '/public/images/album_art/dusk-to-dawn.jpg',
     genre: 'Instrumental Electronic',
     artist: 'Emancipator'
   },

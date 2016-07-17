@@ -10,27 +10,27 @@ $(document).ready(function(){
 
   $.ajax({
     method: 'GET',
-    url: 'api/albums',
+    url: '/api/albums',
     success: onSuccess,
     error: onError
   });
 
-  $('#newAlbumForm').on('submit', function(e) {
-    e.preventDefault();
-    $.ajax({
-      method: 'POST',
-      url: '/api/albums',
-      data: $(this).serialize(),
-      success: newAlbumSuccess,
-      error: newAlbumError
-    });
-  });
+  // $('#newAlbumForm').on('submit', function(e) {
+  //   e.preventDefault();
+  //   $.ajax({
+  //     method: 'POST',
+  //     url: '/api/albums',
+  //     data: $(this).serialize(),
+  //     success: newAlbumSuccess,
+  //     error: newAlbumError
+  //   });
+  // });
 
 });
 
 function render() {
   $albumsList.empty();
-  var albumsHtml = template({albums: allAlbums});
+  var albumsHtml = template({albums: allAlbums.albums});
   $albumsList.append(albumsHtml);
 }
 
@@ -39,11 +39,17 @@ function onSuccess(json) {
   render();
 }
 
-function onError() {
+function onError(e) {
   console.log('ajax get request error');
   $albumsList.text('Failed to load albums, check the server');
 }
 
 function newAlbumSuccess(json) {
   $('#newAlbumForm input').val('');
+  allAlbums.push(json);
+  render();
+}
+
+function newAlbumError(e) {
+  $('#errorTarget').text('Failed to make new album');
 }
