@@ -80,9 +80,9 @@ app.get('/api/albums', function albums_index(req, res) {
   });
 });
 
-app.get('/api/albums/:id', function albums_show(req, res) {
-  var id = req.params.id;
-    db.Album.findById({_id: id}, function(err, album) {
+app.get('/api/albums/:id', function album_show(req, res) {
+  var albumId = req.params.id;
+    db.Album.findById({_id: albumId}, function(err, album) {
       if (err) { res.sendStatus(404); }
       console.log('FOUND ONE ALBUM: ', album.name);
       res.json(album);
@@ -96,10 +96,10 @@ app.post('/api/albums', function(req, res) {
     genre: req.body.genre,
     artist: req.body.artist
   });
-  console.log(newAlbum);
+  console.log(req);
   newAlbum.save(function handleDBAlbumSaved(err, savedAlbum) {
     if (err) { res.sendStatus(404); }
-    console.log('CREATED ', savedAlbum);
+    console.log('CREATED ', savedAlbum.name);
     res.json(savedAlbum);
   });
 });
