@@ -118,10 +118,11 @@ app.put('/api/albums/:id', function(req, res) {
 });
 
 app.delete('/api/albums/:id', function(req, res) {
-  console.log(req.params);
+  // console.log(req.params);
   var albumId = req.params.id;
   db.Album.findOneAndRemove({_id: albumId}, function(err, deletedAlbum) {
-    if (err) { res.sendStatus(404); }
+    if (err) { res.sendStatus(410); }
+    console.log('DELETED ', deletedAlbum.name);
     res.json(deletedAlbum);
   });
 });
