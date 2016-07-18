@@ -3,6 +3,17 @@
 
 var db = require('./models');
 
+var profile = [
+  {
+    name: 'Meg Bauman',
+    github_link: 'https://github.com/mehgellan',
+    github_profile_image: 'public/images/meg.jpeg',
+    location: [ {current: 'San Francisco, CA'}, {start: 'Chicago, IL'} ],
+    social_media: [ {name: 'SoundCloud', href: ''}, {name: 'LinkedIn', href: 'https://www.linkedin.com/in/megbauman'}, {name: '#', href:'#'} ],
+    dob: '05/19/1991'
+  }
+];
+
 var albums_list = [
   {
     name: 'Greatest Hits',
@@ -18,7 +29,7 @@ var albums_list = [
   },
   {
     name: 'Voodoo',
-    album_art: '/images/voodoo.jpg',
+    album_art: 'http://cdn3.pitchfork.com/albums/18585/homepage_large.8f50f1bb.jpg',
     genre: 'RnB',
     artist: "D'Angelo"
   },

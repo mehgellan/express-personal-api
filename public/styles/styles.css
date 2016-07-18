@@ -20,8 +20,9 @@ body {
 FORM
 **************/
 
-#newAlbumForm {
-  color:white;
+.form {
+  margin:10px;
+  padding:0;
 }
 
 legend {
@@ -62,6 +63,10 @@ ALBUMS LIST
   border-radius:20px;
   margin:10px;
   font-family:'Lora', serif;
+}
+
+.album_entry:hover {
+  border-radius:3px dashed rgb(190,78,51);
 }
 
 .deleteBtn {

@@ -23,7 +23,7 @@
     <div class="container-fluid">
 
       <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 form">
             <form class="form-inline" id="newAlbumForm">
               <fieldset>
                 <legend>Add a new Album to my collection!</legend>
@@ -56,7 +56,7 @@
             <h2>My Favorite Albums</h2>
             <script id="albums-template" type="text/x-handlebars-template">
               {{#each albums}}
-              <div class="col-md-6 album_entry">
+              <div class="col-md-4 col-sm-9 album_entry">
                 <img src="{{album_art}}" class="album_art">
                 <span>{{name}}</span>
                 <p>by {{artist}}</p>

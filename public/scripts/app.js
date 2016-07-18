@@ -55,7 +55,7 @@ function onError(e) {
 
 function newAlbumSuccess(json) {
   $('form input').val('');
-  (allAlbums.albums).push(json);
+  (allAlbums.albums).unshift(json);
   render();
 }
 

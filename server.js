@@ -1,6 +1,7 @@
 // require express and other modules
 var express = require('express'),
-    app = express();
+    app = express(),
+    data;
 
 // parse incoming urlencoded form data
 // and populate the req.body object
@@ -64,13 +65,14 @@ app.get('/api', function api_index(req, res) {
 app.get('/api/profile', function profile_index(req, res) {
   //TODO: Document all my profile attributes below
   res.json({
-    name: 'Meg Bauman',
-    github_link: 'https://github.com/mehgellan',
-    github_profile_image: 'public/images/meg.jpeg',
-    location: [ {current: 'San Francisco, CA'}, {start: 'Chicago, IL'} ],
-    social_media: [ {name: 'SoundCloud', href: ''}, {name: 'LinkedIn', href: 'https://www.linkedin.com/in/megbauman'}, {name: '#', href:'#'} ],
-    // days_old: ,
-  });
+      name: 'Meg Bauman',
+      github_link: 'https://github.com/mehgellan',
+      github_profile_image: 'public/images/meg.jpeg',
+      location: [ {current: 'San Francisco, CA'}, {start: 'Chicago, IL'} ],
+      social_media: [ {name: 'SoundCloud', href: ''}, {name: 'LinkedIn', href: 'https://www.linkedin.com/in/megbauman'}, {name: '#', href:'#'} ],
+      dob: '05/19/1991',
+      // days_old: daysUntilDate(json.dob)
+    });
 });
 
 app.get('/api/albums', function albums_index(req, res) {
@@ -128,6 +130,11 @@ app.delete('/api/albums/:id', function(req, res) {
   });
 });
 
+function daysUntilDate(string) {
+  var date = Date.parse(string);
+  var today = Date.now();
+  return ((date - today)/(1000*60*60*24));
+}
 
 
 
