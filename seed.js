@@ -9,7 +9,7 @@ var profile = [
     github_link: 'https://github.com/mehgellan',
     github_profile_image: 'public/images/meg.jpeg',
     location: [ {current: 'San Francisco, CA'}, {start: 'Chicago, IL'} ],
-    social_media: [ {name: 'SoundCloud', href: ''}, {name: 'LinkedIn', href: 'https://www.linkedin.com/in/megbauman'}, {name: '#', href:'#'} ],
+    social_media: [ {name: 'SoundCloud', href: 'https://soundcloud.com/mehgellan'}, {name: 'LinkedIn', href: 'https://www.linkedin.com/in/megbauman'}, {name: 'Instagram', href:'https://www.instagram.com/mehgellan/'} ],
     dob: '05/19/1991'
   }
 ];
