@@ -69,6 +69,7 @@ app.get('/api/profile', function profile_index(req, res) {
     github_profile_image: 'public/images/meg.jpeg',
     location: [ {current: 'San Francisco, CA'}, {start: 'Chicago, IL'} ],
     social_media: [ {name: 'SoundCloud', href: ''}, {name: 'LinkedIn', href: 'https://www.linkedin.com/in/megbauman'}, {name: '#', href:'#'} ],
+    // days_old: ,
   });
 });
 

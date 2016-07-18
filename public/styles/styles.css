@@ -1,20 +1,79 @@
 body {
   color: #333;
   font-family: 'Nunito', sans-serif;
-  background-color: skyblue; /* Sanity Check! */
+  background-color: rgb(63,56,56); /* Sanity Check! */
 }
 
-h1 {
+.jumbotron {
+  background-image: url('/images/andy-gilmore.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.jumbotron h1 {
   margin-top: 100px;
   text-align: center;
+  color:white;
+}
+
+/**************
+FORM
+**************/
+
+#newAlbumForm {
+  color:white;
+}
+
+legend {
+  color:rgb(167,163,158);
+  font-size:24px;
+}
+
+label {
+  font-size: 18px;
+  margin-left:20px;
+  color:rgb(164,119,63);
+}
+
+input {
+  margin-right:20px;
+}
+
+
+/**************
+ALBUMS LIST
+**************/
+
+#target {
+  margin-left:10%;
+  font-size:1.5em;
+  color:rgb(167,163,158);
 }
 
 .album_art {
-  height:100px;
-  width:100px;
-  border-radius:10%;
+  height:150px;
+  width:150px;
+  border-radius:100%;
 }
 
-button {
-  position:relative;
+.album_entry {
+  padding:10px;
+  border:2px dashed rgb(164,119,63);
+  border-radius:20px;
+  margin:10px;
+  font-family:'Lora', serif;
+}
+
+.deleteBtn {
+  background-color:rgb(190,78,51);
+}
+
+.postBtn {
+  margin:0 10px;
+}
+
+span {
+  color:rgb(190,78,51);
+  font-weight: bold;
+  font-size: 24px;
 }
