@@ -71,7 +71,8 @@ app.get('/api/profile', function profile_index(req, res) {
       location: [ {current: 'San Francisco, CA'}, {start: 'Chicago, IL'} ],
       social_media: [ {name: 'SoundCloud', href: ''}, {name: 'LinkedIn', href: 'https://www.linkedin.com/in/megbauman'}, {name: '#', href:'#'} ],
       dob: '05/19/1991',
-      // days_old: daysUntilDate(json.dob)
+      days_old: daysBetweenDate('05/19/1991'),
+      is_awake: is_awake()
     });
 });
 
@@ -130,10 +131,25 @@ app.delete('/api/albums/:id', function(req, res) {
   });
 });
 
-function daysUntilDate(string) {
-  var date = Date.parse(string);
-  var today = Date.now();
-  return ((date - today)/(1000*60*60*24));
+function daysBetweenDate(string) {
+  var dateToCheck = new Date(string);
+  var currentDate = new Date();
+  var diff = Math.floor((currentDate - dateToCheck)/86400000);
+  return diff;
+}
+
+function is_awake() {
+    var start = new Date(2016,6,18,8).getTime();
+    var now = new Date().getTime();
+    var end = new Date(2016,6,18,22).getTime();
+    var is_awake;
+    if( (start < now ) && (now < end )) {
+      is_awake = true;
+    }
+    else {
+     is_awake = false;
+    }
+    return is_awake;
 }
 
 

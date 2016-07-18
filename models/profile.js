@@ -8,7 +8,7 @@ var ProfileSchema = new Schema({
   location: Array,
   social_media: Array,
   dob: String,
-  days_old: Number
+  days_old: [String]
 });
 
 // compile Schema into active model
