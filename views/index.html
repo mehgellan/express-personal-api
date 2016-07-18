@@ -25,8 +25,8 @@
         <div class="col-md-8 col-md-offset-2">
           <form class="form-inline" id="newAlbumForm">
             <fieldset class="form-group">
-              <label for="album">Album</label>
-              <input type="text" name="album" placeholder="Album name">
+              <label for="name">Album</label>
+              <input type="text" name="name" placeholder="Album name">
             </fieldset>
             <fieldset class="form-group">
               <label for="artist">Artist</label>
@@ -49,8 +49,9 @@
               {{#each albums}}
               <p>
                 <img src="{{album_art}}" class="album_art">
-                <b>{{album.name}}</b>
+                <b>{{name}}</b>
                 by {{artist}}
+                <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
               </p>
               {{/each}}
             </script>

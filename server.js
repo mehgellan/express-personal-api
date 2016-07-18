@@ -95,7 +95,7 @@ app.post('/api/albums', function(req, res) {
     genre: req.body.genre,
     artist: req.body.artist
   });
-  console.log(req.body);
+  console.log(req.body.name);
   newAlbum.save(function handleDBAlbumSaved(err, savedAlbum) {
     if (err) { res.sendStatus(404); }
     console.log('CREATED ', savedAlbum.name);

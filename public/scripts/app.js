@@ -15,7 +15,7 @@ $(document).ready(function(){
     error: onError
   });
 
-  $('#newAlbumForm').on('submit', function(e) {
+  $('form').on('submit', function(e) {
     e.preventDefault();
     $.ajax({
       method: 'POST',
@@ -23,6 +23,15 @@ $(document).ready(function(){
       data: $('form').serialize(),
       success: newAlbumSuccess,
       error: newAlbumError
+    });
+  });
+
+  $albumsList.on('click', '.deleteBtn', function() {
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/albums/' + $(this).attr('data-id'),
+      success: deleteAlbumSuccess,
+      error: deleteAlbumError
     });
   });
 
@@ -52,4 +61,21 @@ function newAlbumSuccess(json) {
 
 function newAlbumError(e) {
   $('#errorTarget').text('Failed to make new album');
+}
+
+function deleteAlbumSuccess(json) {
+  var album = json;
+  var albumId = album._id;
+  for(var index = 0; index < allAlbums.length; index++) {
+    if(allAlbums[index]._id === albumId) {
+      allAlbums.splice(index, 1);
+      break;
+    }
+  }
+  render();
+}
+
+function deleteAlbumError() {
+  $('#errorTarget').text('Failed to delete album by id');
+  console.log('Failed to delete album by id');
 }
