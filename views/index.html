@@ -33,6 +33,10 @@
               <input type="text" name="artist" placeholder="Artist name">
             </fieldset>
             <fieldset class="form-group">
+              <label for="album_art">Album Art</label>
+              <input type="text" name="album_art" placeholder="Paste image link here">
+            </fieldset>
+            <fieldset class="form-group">
               <label for"genre">Genre</label>
               <select id="genre">
                 <option value="electronic">Electronic</option>
@@ -47,12 +51,12 @@
           <div id="target">
             <script id="albums-template" type="text/x-handlebars-template">
               {{#each albums}}
-              <p>
+              <div class="col-md-6">
                 <img src="{{album_art}}" class="album_art">
                 <b>{{name}}</b>
                 by {{artist}}
                 <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
-              </p>
+              </div>
               {{/each}}
             </script>
           </div>
