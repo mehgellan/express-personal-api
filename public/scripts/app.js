@@ -66,9 +66,9 @@ function newAlbumError(e) {
 function deleteAlbumSuccess(json) {
   var album = json;
   var albumId = album._id;
-  for(var index = 0; index < allAlbums.length; index++) {
-    if(allAlbums[index]._id === albumId) {
-      allAlbums.splice(index, 1);
+  for(var index = 0; index < allAlbums.albums.length; index++) {
+    if(allAlbums.albums[index]._id === albumId) {
+      allAlbums.albums.splice(index, 1);
       break;
     }
   }
